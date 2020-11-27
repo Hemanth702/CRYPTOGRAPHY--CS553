@@ -1,0 +1,43 @@
+\section{Conclusion}
+
+\begin{frame}{Conclusion}
+\begin{block}{}
+    Using Bit-Sliced implementation our Cipher PRIDE gets benefited in many ways as:
+	\begin{itemize}
+		\item Speed
+		\item Parallelization
+		\item Constant execution time
+	\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Conclusion}
+    \begin{block}{}
+    \begin{itemize}
+        \item In the described complexity of the attack, it is said that 40-bits round key is captured in $18^{th}$ round key layer, 12-bit key in the $17^{th}$ round and 12-bit in $1^{st}$ round. This makes the time complexity $2^{64}$ a whole.
+    \end{itemize} 
+    \end{block}
+    \begin{block}{}
+    \begin{itemize}
+        \item This is an error because the differentials in the 1st and 17th rounds were unidentified viz $Y_1[10], Y_1[6], Y_1[2] and X_{17}[10], X_{17}[6], X_{17}[2]$. This leads to capturing only 58 bits in place of 64 as said, which make the time complexity $2^{70}$ by correcting $2^{66}$ as it needs exhaustive search.
+    \end{itemize} 
+    \end{block}
+\end{frame}
+
+\begin{frame}{Conclusion}
+\begin{block}{}
+    \begin{itemize}
+        \item we can view the PRIDE linear layer as a strong benchmark for efficient linear layers with the given parameters and encourage others to try to beat its performance.
+    \end{itemize} 
+     \end{block}
+        \begin{block}{}
+        \begin{itemize}
+            \item  Finally, we note that, despite its target being software implementations, PRIDE is also efficient in hardware. It can be considered a hardware-friendly design, due to its cheap linear and S-box layers.
+        \end{itemize}
+        \end{block}
+        \begin{block}{}
+        \begin{itemize}
+            \item   Finally, regarding PRIDE, we obviously encourage further cryptanalysis
+        \end{itemize}
+        \end{block}
+\end{frame}

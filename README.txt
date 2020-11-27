@@ -44,3 +44,14 @@ The sub-directory 'python_implementation' contains python (.py) files:
 	2. cmd : python3 test.py (or) python test.py based on the versions of python installed in your computer.
 
 	Note: Do not change the files to different directories as it may give errors.
+
+
+The sub-directory 'Presentation' contains files:
+	1. presentation.tex
+	2. intro.tex
+	3. spec.tex
+	4. attack.tex
+	5. observe.tex
+	6. bpnominate.tex
+	7. conclu.tex
+

@@ -1,0 +1,72 @@
+\section{Attacks}
+\begin{frame}{Notation of PRIDE}
+    \begin{table}[H]
+		\centering
+		\begin{tabular}{cl}
+			$ I_r $ & $ r^{th} $ round : \textbf{input}\\ 
+			$ X_r $ & $ r^{th} $ round : the state after \textbf{key addition}\\ 
+			$ Y_r $ & $ r^{th} $ round : state after \textbf{substitution}\\
+			$ Z_r $ & $ r^{th} $ round : state after \textbf{permutation}\\ 
+			$ W_r $ & $ r^{th} $ round : state after \textbf{matrix layer}\\ 
+			$ O_r $ & $ r^{th} $ round : \textbf{output}\\ 
+			$ \Delta X $ & $ X \oplus X_0 $ \\ 
+			x & a bit have undetermined value\\ 
+			$ X[l_1 , l_2, \dots] $ & state $ X $ with the nibbles $ l_1, l_2, \dots-th $\\
+			    & where $ 1\le l_1 < l_2 < . . . \le 16 $ \\ 
+			$ X\{m_1 , m_2, \dots\} $ & state $ X $ with the bits $ m_1, m_2, \dots-th $\\
+			& where $ 1 \le m_1 < m_2 < \dots \le 64 $, \\
+			& enumerated from left to right.\\ 
+		\end{tabular}
+		\caption{Notation of PRIDE}
+		\label{n}
+	\end{table}
+\end{frame}
+
+\begin{frame}{DDT}
+    \begin{table}[H]
+		\centering
+		\resizebox{0.8\textwidth}{!}{\begin{tabular}{c|cccccccccccccccc}
+			&0 &  1 &  2 &  3 &  4 &  5 &  6 &  7 &  8 &  9 &  a &  b &  c &  d &  e &  f\\
+			\hline 
+			0 & 16 &  . &  . &  . &  . &  . &  . &  . &  . &  . &  . &  . &  . &  . &  . &  .\\ 
+			1 &  . &  . &  . &  . &  4 &  4 &  4 &  4 &  . &  . &  . &  . &  . &  . &  . &  .\\ 
+			2 &  . &  . &  . &  . &  . &  . &  . &  . &  4 &  . &  . &  4 &  2 &  2 &  2 &  2\\ 
+			3 &  . &  . &  . &  . &  . &  . &  . &  . &  4 &  . &  . &  4 &  2 &  2 &  2 &  2\\ 
+			4 &  . &  4 &  . &  . &  . &  . &  4 &  . &  . &  2 &  2 &  . &  2 &  . &  . &  2\\ 
+			5 &  . &  4 &  . &  . &  . &  4 &  . &  . &  . &  2 &  2 &  . &  2 &  . &  . &  2\\ 
+			6 &  . &  4 &  . &  . &  4 &  . &  . &  . &  . &  2 &  2 &  . &  . &  2 &  2 &  .\\ 
+			7 &  . &  4 &  . &  . &  . &  . &  . &  4 &  . &  2 &  2 &  . &  . &  2 &  2 &  .\\ 
+			8 &  . &  . &  4 &  4 &  . &  . &  . &  . &  4 &  . &  4 &  . &  . &  . &  . &  .\\ 
+			9 &  . &  . &  . &  . &  2 &  2 &  2 &  2 &  . &  . &  . &  . &  2 &  2 &  2 &  2\\ 
+			a &  . &  . &  . &  . &  2 &  2 &  2 &  2 &  4 &  . &  4 &  . &  . &  . &  . &  .\\ 
+			b &  . &  . &  4 &  4 &  . &  . &  . &  . &  . &  . &  . &  . &  2 &  2 &  2 &  2\\ 
+			c &  . &  . &  2 &  2 &  2 &  2 &  . &  . &  . &  2 &  . &  2 &  2 &  . &  2 &  .\\ 
+			d &  . &  . &  2 &  2 &  . &  . &  2 &  2 &  . &  2 &  . &  2 &  . &  2 &  . &  2\\ 
+			e &  . &  . &  2 &  2 &  . &  . &  2 &  2 &  . &  2 &  . &  2 &  2 &  . &  2 &  .\\ 
+			f &  . &  . &  2 &  2 &  2 &  2 &  . &  . &  . &  2 &  . &  2 &  . &  2 &  . &  2\\  
+		\end{tabular}}
+		\caption{DDT of PRIDE}
+	\end{table}
+\end{frame}
+
+\begin{frame}{18-Round Differential Attack}
+    16 2-Round iterative differential characteristics of the form as below are found.
+    $$(8000000000000000) \overset{1r}{\rightarrow} (0000800080008000) \overset{1r}{\rightarrow} (8000000000000000)$$
+    \begin{block}{15-Round attack}
+        15-round differential characteristic = 7 2-round differential at the top + 1 1-round differential at the bottom
+	
+	    Probability of 15-round differential characteristic = $ \frac{1}{2^{58}} $
+    \end{block}
+    
+    \begin{block}{18-Round attack}
+        18-round differential attack = 1 1-round differential at the top + 15-round differential in the middle + 2 1-round differential at the bottom
+    \end{block}
+\end{frame}
+
+\begin{frame}{Complexity of the attack}
+    \begin{block}{}
+        \textbf{Data} : $2^{60}$\\
+	    \textbf{Time} : $2^{66}$\\
+	    \textbf{Memory} : $2^{64}$
+    \end{block}
+\end{frame}

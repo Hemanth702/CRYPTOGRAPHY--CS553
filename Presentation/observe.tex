@@ -1,0 +1,40 @@
+\section{Observations}
+
+\begin{frame}{ATTACKS}
+    Proposed Complexity : $(D,T,M)=(2^{60},2^{66},2^{64})$\\
+    Round key bits and their captured layers:
+    \begin{itemize}
+        \item 40-bit round key is captured in $18^{th}$ round key layer
+        \item 12-bit round key is captured in $17^{th}$ round key layer
+        \item 12-bit round key is captured in $1^{st}$ round key layer
+    \end{itemize}
+    This is erroneous because the differentials in the 1st and 17th rounds were unidentified viz $Y_1[10], Y_1[6], Y_1[2] and X_{17}[10], X_{17}[6], X_{17}[2]$.\\
+    This leads to capturing only 58 bits in place of 64 as said, which make the time complexity $2^{70}$ by correcting $2^{66}$ as it needs exhaustive search.
+\end{frame}
+
+\begin{frame}{LINEAR LAYER}
+\begin{block}{OBSERVATIONS AND IMPROVEMENTS}
+\begin{enumerate}
+    \item Improve hardware search,cover larger space
+    \item Find more efficient constructions
+    \item Explore trade-offs
+    \item Extend to different platforms(PIC,ARM,etc,)
+\end{enumerate}
+
+\end{block}
+
+\end{frame}
+\begin{frame}{SECURITY}
+\begin{block}{OBSERVATIONS AND IMPROVEMENTS}
+\begin{enumerate}
+    \item Zhao et al.: Differential analysis on Block Cipher PRIDE
+    \item Found 16 different 2-round iterative characteristics
+    \item constructed several 15-round differentials
+    \item Based on these, launched differential attack on 18-round PRIDE
+    \item Data,time,and memory complexity are $2^{60}$ $2^{66}$ $2^{64}$
+    \item Even more security analysis.
+\end{enumerate}
+
+\end{block}
+
+\end{frame}
