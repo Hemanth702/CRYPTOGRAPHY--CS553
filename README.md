@@ -1,4 +1,4 @@
 # CRYPTOGRAPHY--CS553
 TEAM CIPHERS - P.NAGENDAR , G.HEMANTH SAI KIRAN
 
-All the main work is in 'master' branch
+All the main work is in 'master' branch. Please switch to that branch!
