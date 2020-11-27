@@ -1,0 +1,35 @@
+\begin{thebibliography}{1}
+
+\bibitem{ciphers:2020}
+{\em FELICS block cipher implementations}, 2020 (accessed November 21, 2020).
+\newblock
+  \url{https://www.cryptolux.org/index.php/FELICS_Block_Ciphers_Brief_Results}.
+
+\bibitem{10.1007/978-3-662-44371-2_4}
+Martin~R. Albrecht, Benedikt Driessen, Elif~Bilge Kavun, Gregor Leander,
+  Christof Paar, and Tolga Yal{\c{c}}{\i}n.
+\newblock Block ciphers -- focus on the linear layer (feat. pride).
+\newblock In Juan~A. Garay and Rosario Gennaro, editors, {\em Advances in
+  Cryptology -- CRYPTO 2014}, pages 57--76, Berlin, Heidelberg, 2014. Springer
+  Berlin Heidelberg.
+
+\bibitem{Hatzivasilis2018}
+George Hatzivasilis, Konstantinos Fysarakis, Ioannis Papaefstathiou, and
+  Charalampos Manifavas.
+\newblock A review of lightweight block ciphers.
+\newblock {\em Journal of Cryptographic Engineering}, 8(2):141--184, Jun 2018.
+\newblock \url{https://doi.org/10.1007/s13389-017-0160-y}.
+
+\bibitem{cryptoeprint:2014:525}
+Jingyuan Zhao, Xiaoyun Wang, Meiqin Wang, and Xiaoyang Dong.
+\newblock Differential analysis on block cipher pride.
+\newblock Cryptology ePrint Archive, Report 2014/525, 2014.
+\newblock \url{https://eprint.iacr.org/2014/525}.
+
+\bibitem{chinese}
+伊文坛, 田亚, and 陈少真.
+\newblock 减缩轮pride算法的线性分析.
+\newblock {\em 电子学报}, 45(2):468--476, 5 2017.
+\newblock \url{http://d.wanfangdata.com.cn/periodical/dianzixb201702028}.
+
+\end{thebibliography}

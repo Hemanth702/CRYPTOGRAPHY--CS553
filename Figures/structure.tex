@@ -1,0 +1,121 @@
+\documentclass{standalone}
+\usepackage{amssymb,amsmath,graphicx}
+\usepackage{tikz}
+\usepackage{caption}
+\usepackage{ifthen}
+\usetikzlibrary{calc}
+\usetikzlibrary{crypto.symbols}
+\usetikzlibrary {positioning}
+\usetikzlibrary{shapes}
+\usepackage{dblfloatfix}
+\newcommand{\sqdiamond}[1][fill=black]{\tikz [x=1.2ex,y=1.85ex,line width=.1ex,line join=round, yshift=-0.285ex] \draw  [#1]  (0,.5) -- (.5,1) -- (1,.5) -- (.5,0) -- (0,.5) -- cycle;}
+\newcommand{\MyDiamond}[1][fill=black]{\mathop{\raisebox{-0.275ex}{$\sqdiamond[#1]$}}}
+\begin{document}  
+	\begin{tikzpicture}
+	\node[draw,thick,minimum width=3em,minimum height=2em,fill=white] (r0) at ($0*(4em,0) + (2em,0em)$) {$R$};
+	\node[draw,thick,minimum width=3em,minimum height=2em,fill=white, right=1.5em of r0] (r1) {$R$};
+	\node[draw,thick,minimum width=3em,minimum height=2em,fill=white, right=1.5em of r1] (r2) {$R$};
+	\node[draw,thick,minimum width=3em,minimum height=2em,fill=white, right=1.5em of r2] (r3) {$R$};
+	\node[draw,thick,minimum width=3em,minimum height=2em,fill=white, right=1.5em of r3] (r4) {$R$};
+	\node[draw,thick,minimum width=3em,minimum height=2em,fill=white, right=1.5em of r4] (r5) {$R$};
+	\node[thick,right=1em of r5] (r6) {$\MyDiamond$};
+	\node[thick,right=0em of r6] (r7) {$\MyDiamond$};
+	\node[thick,right=0em of r7] (r8) {$\MyDiamond$};
+	\node[thick,right=0em of r8] (r9) {$\MyDiamond$};
+	\node[draw,thick,minimum width=3em,minimum height=2em,fill=white,right=1em of r9] (r10) {$R$};
+	\node[draw,thick,minimum width=3em,minimum height=2em,fill=white,right=1.5em of r10] (r11) {$R$};
+	\node[draw,thick,minimum width=3em,minimum height=2em,fill=white,right=1.5em of r11] (r12) {$R$};
+	\node[draw,thick,minimum width=3em,minimum height=2em,fill=white,right=1.5em of r12] (r13) {$R$};
+	\node[draw,thick,minimum width=3em,minimum height=2em,fill=white,right=1.5em of r13] (r14) {$R$};
+	\node[draw,thick,minimum width=3em,minimum height=2em,fill=white,right=1.5em of r14] (r15) {$R'$};
+	
+	\node[right=-0.5em of r0] (pa0) {};
+	\node[right=-0.5em of r1] (pa1) {};
+	\node[right=-0.5em of r2] (pa2) {};
+	\node[right=-0.5em of r3] (pa3) {};
+	\node[right=-0.5em of r4] (pa4) {};
+	\node[right=-0.5em of r5] (pa5) {};
+	\node[right=-0.7em of r9] (pa6) {};
+	\node[right=-0.5em of r10] (pa7) {};
+	\node[right=-0.5em of r11] (pa8) {};
+	\node[right=-0.5em of r12] (pa9) {};
+	\node[right=-0.5em of r13] (pa10) {};
+	\node[right=-0.5em of r14] (pa11) {};
+	\node[right=-0.5em of r15] (pa12) {};
+	
+	
+	\node[right=1.1em of r0] (pb0) {};
+	\node[right=1.1em of r1] (pb1) {};
+	\node[right=1.1em of r2] (pb2) {};
+	\node[right=1.1em of r3] (pb3) {};
+	\node[right=1.1em of r4] (pb4) {};
+	\node[right=0.8em of r5] (pb5) {};
+	\node[right=0.5em of r9] (pb6) {};
+	\node[right=1.1em of r10] (pb7) {};
+	\node[right=1.1em of r11] (pb8) {};
+	\node[right=1.1em of r12] (pb9) {};
+	\node[right=1.1em of r13] (pb10) {};
+	\node[right=1.1em of r14] (pb11) {};
+	\node[right=1.1em of r15] (pb12) {};
+	
+	\foreach \z in {0,...,12} {
+	\draw[thick,->] (pa\z.center) -- (pb\z.center);
+	}
+	\node[XOR, scale=1, left=1.5em of r0] (p0) {};
+	\node[XOR, scale=1, right=1.5em of r15] (p1) {};
+	
+	\node[draw,thick,minimum width=3em,minimum height=2em,fill=white,left=1em of p0] (pinv) {$P^{-1}$};
+	\draw[thick,->] (pinv) -- (r0);
+	
+	\node[draw,thick,minimum width=3em,minimum height=2em,fill=white,right=1em of p1] (plast) {$P$};
+	\draw[thick,->] (r15) -- (plast);
+	
+	\node[above=1.5em of p0] (pp0) {$k_0$};
+	\node[above=1.5em of p1] (pp1) {$k_2$};
+	
+	\draw[thick,->] (pp0) -- (p0);
+	\draw[thick,->] (pp1) -- (p1);
+	
+	\node[left=1em of pinv](m) {$m$};
+	\draw[thick,->] (m) -- (pinv);
+	
+	\node[right=1em of plast](c) {$c$};
+	\draw[thick,->] (plast) -- (c);
+	
+	\node[above=2em of r0] (a0) {$f_1(k')$};
+	\node[above=2em of r1] (a1) {$f_2(k')$};
+	\node[above=2em of r2] (a2) {$f_3(k')$};
+	\node[above=2em of r3] (a3) {$f_4(k')$};
+	\node[above=2em of r4] (a4) {$f_5(k')$};
+	\node[above=2em of r5] (a5) {$f_6(k')$};
+	\node[above=2em of r10] (a10) {$f_{15}(k')$};
+	\node[above=2em of r11] (a11) {$f_{16}(k')$};
+	\node[above=2em of r12] (a12) {$f_{17}(k')$};
+	\node[above=2em of r13] (a13) {$f_{18}(k')$};
+	\node[above=2em of r14] (a14) {$f_{19}(k')$};
+	\node[above=2em of r15] (a15) {$f_{20}(k')$};
+
+	
+	\draw[thick,->] (a0) -- (r0);
+	\draw[thick,->] (a1) -- (r1);
+	\draw[thick,->] (a2) -- (r2);
+	\draw[thick,->] (a3) -- (r3);
+	\draw[thick,->] (a4) -- (r4);
+	\draw[thick,->] (a5) -- (r5);
+	\draw[thick,->] (a10) -- (r10);
+	\draw[thick,->] (a11) -- (r11);
+	\draw[thick,->] (a12) -- (r12);
+	\draw[thick,->] (a13) -- (r13);
+	\draw[thick,->] (a14) -- (r14);
+	\draw[thick,->] (a15) -- (r15);
+	
+	
+	\node[left=0.3em of a0] (t0) {};
+	\node[above=1em of t0] (t1) {};
+	\node[below=9em of t1] (t2) {};
+	\node[right=60em of t2] (t3) {};
+	\node[right=60em of t1] (t4) {};
+	
+	\draw[dotted] (t1.center) -- (t2.center) -- (t3.center) -- (t4.center) -- (t1.center);
+	\end{tikzpicture}
+\end{document}

@@ -1,0 +1,94 @@
+\documentclass{standalone}
+
+\usepackage{tikz}
+\usepackage{caption}
+\usetikzlibrary{calc}
+\usetikzlibrary{crypto.symbols}
+\usetikzlibrary {positioning}
+\usetikzlibrary{shapes}
+\usepackage{dblfloatfix}
+\begin{document}  
+	%\begin{figure}[h]
+	\begin{tikzpicture}
+	\node[XOR, scale=2] (xor) at (23.6em,1.5) {};
+	\node (i) [above = 2em of xor] {};
+	\node (j) [below = 2.25em of xor] {};
+	\node (right1) at (26.6em,1.5) {};
+	\node (right2) at (24.6em,1.5) {};
+	\draw[->,line width=0.5mm] (i) -- (j);
+	\draw[->,line width=0.4mm] (right1.center) -- (right2.center);
+	\node[right = 0em of right1] {$P^{-1}(f_i(k'))$};
+	
+	\node[right = 23.5em of i] (rd) {};
+	\node[right = 0.5em of rd] (rd2) {};
+	\node[below = 8.2em of rd2] (rd3) {};
+	\node[below = 8.2em of rd] (rd4) {};
+	\node[below = 4em of rd2] (rds) {};
+	\draw[] (rd.center) -- (rd2.center) -- (rds.center) -- (rd3.center) -- (rd4.center);
+	\node[right = 0em of rds] {$R'$};
+	
+	\node[right = 25.5em of i] (r) {};
+	\node[right = 0.5em of r] (r2) {};
+	\node[below = 31em of r2] (r3) {};
+	\node[below = 31em of r] (r4) {};
+	\node[below = 15.em of r2] (rs) {};
+	\draw[] (r.center) -- (r2.center) -- (rs.center) -- (r3.center) -- (r4.center);
+	\node[right = 0em of rs] {$R$};
+	
+	\node[left = 23.5em of i] (l) {};
+	\node[below = 8em of l] (l1) {};
+	\node[left = 0.5em of l1] (l2) {};
+	\node[below = 8.5em of l2] (l3) {};
+	\node[below = 4.2em of l2] (l3s) {};
+	\node[right = 0.5em of l3] (l4) {};
+	\draw[] (l1.center) -- (l2.center) -- (l3.center) -- (l4.center);
+	\node[left = 0em of l3s] {$P$};
+	
+	\node[below = 1.6em of l4] (k) {};
+	\node[left = 0.5em of k] (k1) {};
+	\node[below = 8.5em of k1] (k2) {};
+	\node[below = 4.2em of k1] (k2s) {};
+	\node[right = 0.5em of k2] (k3) {};
+	\draw[] (k.center) -- (k1.center) -- (k2.center) -- (k3.center);
+	\node[left = 0em of k2s] {$P^{-1}$};
+	
+	\node[left = 1em of l2] (h) {};
+	\node[left = 0.5em of h] (h1) {};
+	\node[below = 20em of h1] (h2) {};
+	\node[below = 9.9em of h1] (h2s) {};
+	\node[right = 0.5em of h2] (h3) {};
+	\draw[] (h.center) -- (h1.center) -- (h2.center) -- (h3.center);
+	\node[left = 0em of h2s] {$L$};
+	
+ 	% noding
+	\foreach \z in {0,...,63} {
+		\node (ta\z) at ($(\z*0.75em, 0.15)$) {};
+		\node (tb\z) at ($(\z*0.75em, -0.50)$) {};
+		\node (tta\z) at ($(\z*0.75em, 0)+(0,-10em)$) {};
+		\node (ttb\z) at ($(\z*0.75em, 0)+(0,-10.8em)$) {};
+		\node (ttta\z) at ($(\z*0.75em, -0.75)+(0,-10.8em)$) {};
+		\node (tttta\z) at ($(\z*0.75em, 0)+(0,-21.4em)$) {};
+		\node (ttttb\z) at ($(\z*0.75em, 0)+(0,-23em)$) {};
+	}
+	\foreach \z [evaluate=\z as \zz using {int(mod(16*\z,63))}] in {0,...,62} {
+		\draw[] (ta\z.center) -- (tb\z.center) -- (tta\zz.center) -- (ttb\zz.center) -- (ttb\zz.center) -- (ttta\zz.center) -- (tttta\z.center) -- (ttttb\z.center);
+	}
+	\draw[] (ta63.center) -- (tb63.center) -- (tta63.center)-- (ttb63.center) -- (ttb63.center) -- (ttta63.center) -- (tttta63.center) -- (ttttb63.center);
+	\foreach \z in {0,...,15} {
+		\node[draw,thick,minimum width=3em,minimum height=2em,fill=white] (p4) at ($\z*(3em,0) + (1.1em,0em)$) {$S$};
+	}
+	\node[draw,thick,minimum width=12em,minimum height=2em,fill=white] (ls) at ($(0em,-4) + (5.7em,0em)$) {$L_{0}$};
+	\node[draw,thick,minimum width=12em,minimum height=2em,fill=white] (ls) at ($(17.6em,-4) + (0em,0em)$) {$L_{1}$};
+	\node[draw,thick,minimum width=12em,minimum height=2em,fill=white] (ls) at ($(29.6em,-4) + (0em,0em)$) {$L_{2}$};
+	\node[draw,thick,minimum width=12em,minimum height=2em,fill=white] (ls) at ($(41.6em,-4) + (0em,0em)$) {$L_{3}$};
+%	\foreach \z in {0,...,3} {
+%		\node[draw,thick,minimum width=13em,minimum height=2em,fill=white] (ls) at ($(\z*4.1,-4) + (6.2em,0em)$) {$L_{\z}$};
+%	}
+	\foreach \z in {0,...,15} {
+		\node[draw,thick,minimum width=3em,minimum height=2em,fill=white] (pp4) at ($(\z*3em,-8) + (1.1em,0em)$) {};
+	}
+	\end{tikzpicture}
+	%\caption{PRIDE}
+	%\label{pr}
+	%\end{figure} 
+\end{document}
