@@ -1,7 +1,8 @@
-The main directory contains 3 sub-directories:
+The main directory contains 4 sub-directories:
 	1. termPaper_teamCiphers
 	2. Figures
 	3. python_implementation
+        4. Presentation
 	
 The sub-directory 'termPaper_teamCiphers' contains files:
 	1. termPaper_teamCiphers.tex and termPaper_teamCiphers.pdf
