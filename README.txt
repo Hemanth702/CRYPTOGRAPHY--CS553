@@ -56,3 +56,8 @@ The sub-directory 'Presentation' contains files:
 	6. bpnominate.tex
 	7. conclu.tex
 
+
+Video presentation :
+        The drive link for our video presentation: https://drive.google.com/drive/folders/1v8Yyvt1ie97Ndgfk4Yadlo_nTSMEr5gi?usp=sharing
+        Please download the whole folder for watching clearly as Google Drive may not allow for clear playing.
+
